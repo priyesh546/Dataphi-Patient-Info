@@ -34,6 +34,12 @@
 
 	$result = mysqli_query($conn,$sql);
 
+	if($first_name_search != null && $result->num_rows == 0)
+	{
+		$sql = "SELECT * FROM heroku_d967a08d6902966.patient_data";
+		$result = mysqli_query($conn,$sql);
+	}
+
 	echo "$result->num_rows records found";
 
 	echo "<table border='1'>
