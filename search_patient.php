@@ -66,7 +66,7 @@ if ($result->num_rows > 0) {
 
 	$conn->close();
 ?>
-<center><a href="patientEntry.html">New Patient</a></center>
+<center><a href="index.html">New Patient</a></center>
 
 </body>
 </html>
