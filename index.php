@@ -1,72 +1,56 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="css/normalize.css">
+	<head>
+		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
-	<title>Search Patient</title>
-</head>
-<body>
-<br>
-<form action="index.php" method="post">
-<center>
-	<label><strong>Search Patient Inormation</strong></label>
-	<input type="text" name="searchName" placeholder="Enter patient's firstname here" style="width: 250px">
-	<input type="submit" name="search" value="search">
-</center>
-</form>
-<br>
-<br>
-
-<?php
-
-	include_once('connector.php');
-
-	$first_name_search = null;
-	if (isset($_POST['searchName'])) {
-		$first_name_search = $_POST['searchName'];
-	}
-
-	
-	if($first_name_search != null)
-		$sql = "SELECT * FROM patient_data WHERE first_name='$first_name_search'";
-	else
-		$sql = "SELECT * FROM patient_data";
-
-	$result = mysqli_query($conn,$sql);
-
-	echo "$result->num_rows records found";
-
-	echo "<table border='1'>
-			<tr>
-			<th>Firstname</th>
-			<th>Lastname</th>
-			<th>Date of birth</th>
-			<th>Age</th>
-			<th>Gender</th>
-			<th>Phone Number</th>
-			<th>Additional Information</th>
-			</tr>";
-if ($result->num_rows > 0) {
-	while($row = mysqli_fetch_array($result))
-		{
-		echo "<tr>";
-		echo "<td>"  . $row['first_name'] . "</td>";
-		echo "<td>" . $row['last_name'] . "</td>";
-		echo "<td>" . $row['date_of_birth'] . "</td>";
-		echo "<td>" . $row['age'] . "</td>";
-		echo "<td>" . $row['gender'] . "</td>";
-		echo "<td>" . $row['phone_number'] . "</td>";
-		echo "<td>" . $row['add_info'] . "</td>";
-		echo "</tr>";
-		}
-		echo "</table>";
-	}
-	else
-		echo "0 results";
-
-	$conn->close();
-?>
-<center><a href="index.html">New Patient</a></center>
-
-</body>
-</html>
+		<title>Patient Entry Form</title>
+	</head>
+	<body>
+		<div class="container">
+			<form method="post" action="insert_data.php" method="post">
+				<h2>Patient's Information</h2>
+				<table>
+				<tr>
+					<td><label><strong>First Name</strong></label></td>
+					<td><input type="text" name="firstname" id=firstname" placeholder="First Name" pattern="^[A-Za-z]*$" required="true" oninvalid="this.setCustomValidity('Enter valid name')" oninput="setCustomValidity('')"></td>
+				<tr>
+					<td><label><strong>Last Name</strong></label></td>
+					<td><input type="text" name="lastname" id="lastname" placeholder="Last Name" pattern="^[A-Za-z]*$" required="true" oninvalid="this.setCustomValidity('Enter valid name')" oninput="setCustomValidity('')"></td>
+				</tr>
+				<tr>
+					<td><label><strong>Date of birth</strong></label></td>
+					<td><input type="date" name="DOB" id="DOB" onchange="calculateAge()" required="true"></td>
+				</tr>
+				<tr>
+					<td><label hidden="true"><strong>Age</strong></label></td>
+					<td><input type="text" name="age" id="age" placeholder="Age" hidden="true"></td>
+				</tr>
+				<tr>
+					<td><label><strong>Gender</strong></label></td>
+					<td><select name="gender">
+					        <option value="Male">Male</option>
+					        <option value="Female">Female</option>
+				    	</select>
+				    </td>
+			    </tr>
+			    <tr>
+				    <td><label><strong>Phone Number</strong></label></td>
+				    <td><input type="text" name="phonenumber" id="phonenumber" placeholder="Phone Number" pattern="^[7-9][0-9]{9}$" required="true" oninvalid="this.setCustomValidity('Enter valid phonenumber')" oninput="setCustomValidity('')"></td>
+			    </tr>
+			    <tr>
+			    	<td><label><strong>Additional Information</strong></label></td>
+			    	<td><textarea name="addinfo" placeholder="Additional Information"></textarea></td>
+			    </tr>
+			    <tr>
+			    <td></td>
+			    <td><input type="submit" name="Save" value="Save" on="enableAge()"></td>
+			    </tr>
+			    <tr>
+			    	<td></td>
+			    	<td><a href="search_patient.php">Search Patient data</a></td>
+			    </tr>
+			    </table>
+			</form>
+		</div>
+		<script type="text/javascript" src="script/validate.js"></script>
+	</body>
+<html>
