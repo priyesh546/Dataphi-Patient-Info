@@ -21,8 +21,8 @@
 					<td><input type="date" name="DOB" id="DOB" onchange="calculateAge()" required="true"></td>
 				</tr>
 				<tr>
-					<td><label><strong>Age</strong></label></td>
-					<td><input type="text" name="age" id="age" placeholder="Age"></td>
+					<td><label hidden="true"><strong>Age</strong></label></td>
+					<td><input type="text" name="age" id="age" placeholder="Age" hidden="true"></td>
 				</tr>
 				<tr>
 					<td><label><strong>Gender</strong></label></td>

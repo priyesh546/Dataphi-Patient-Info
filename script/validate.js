@@ -7,7 +7,7 @@ function calculateAge()
 	var d = new Date(selecteddate);
 	var today = new Date();
 	var ageYears = parseInt(today.getFullYear()) - parseInt(d.getFullYear());
-	alert(ageYears);
+	//alert(ageYears);
 	//var ageMonth = parseInt(today.getMonth()) - parseInt(d.getMonth());
 	if(ageYears >= 0)
 	{
