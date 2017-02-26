@@ -1,6 +1,6 @@
 <?php
 
-$url = parse_url(getenv("mysql://b5f778db8fcb3c:d53354e0@us-cdbr-iron-east-04.cleardb.net/heroku_d967a08d6902966?reconnect=true"));
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $user = $url["user"];
 $password = $url["pass"];
@@ -11,9 +11,9 @@ $host = $url["host"];
 // Create connection
 $conn = new mysqli($host,$user,$password,$db);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// } 
 
 ?>
