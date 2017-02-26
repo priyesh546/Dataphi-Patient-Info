@@ -7,19 +7,16 @@ function calculateAge()
 	var d = new Date(selecteddate);
 	var today = new Date();
 	var ageYears = parseInt(today.getFullYear()) - parseInt(d.getFullYear());
+	alert(ageYears);
 	//var ageMonth = parseInt(today.getMonth()) - parseInt(d.getMonth());
 	if(ageYears >= 0)
 	{
-		document.getElementById("age").innerHTML = ageYears;
+		document.getElementById("age").value = ageYears;
 	}
 	else
 	{
 	
 	}
-}
-
-function enableAge(){
-	document.getElementById("age").disabled = "false"
 }
 
 
