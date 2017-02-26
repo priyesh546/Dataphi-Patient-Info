@@ -10,12 +10,16 @@ function calculateAge()
 	//var ageMonth = parseInt(today.getMonth()) - parseInt(d.getMonth());
 	if(ageYears >= 0)
 	{
-		document.getElementById("age").value = ageYears;
+		document.getElementById("age").innerHTML = ageYears;
 	}
 	else
 	{
 	
 	}
+}
+
+function enableAge(){
+	document.getElementById("age").disabled = "false"
 }
 
 
