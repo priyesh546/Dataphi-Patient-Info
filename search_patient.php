@@ -38,9 +38,12 @@
 	{
 		$sql = "SELECT * FROM heroku_d967a08d6902966.patient_data";
 		$result = mysqli_query($conn,$sql);
+		echo "no matching records found";
 	}
-
-	echo "$result->num_rows records found";
+	else
+	{
+		echo "$result->num_rows records found";
+	}
 
 	echo "<table border='1'>
 			<tr>

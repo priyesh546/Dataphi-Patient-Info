@@ -22,7 +22,7 @@
 				</tr>
 				<tr>
 					<td><label hidden="true"><strong>Age</strong></label></td>
-					<td><input type="text" name="age" id="age" placeholder="Age" hidden="true"></td>
+					<td><input type="text" name="age" id="age" placeholder="Age" hidden="false"></td>
 				</tr>
 				<tr>
 					<td><label><strong>Gender</strong></label></td>
