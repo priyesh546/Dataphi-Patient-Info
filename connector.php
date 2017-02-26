@@ -1,9 +1,11 @@
 <?php
 
-$user = 'root';
-$password = 'root';
-$db = 'patient_info';
-$host = 'localhost';
+$url = parse_url(getenv("mysql://b5f778db8fcb3c:d53354e0@us-cdbr-iron-east-04.cleardb.net/heroku_d967a08d6902966?reconnect=true"));
+
+$user = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"]);
+$host = $url["host"];
 // $port = 8889;
 
 // Create connection
