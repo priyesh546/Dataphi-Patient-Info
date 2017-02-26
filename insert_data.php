@@ -12,7 +12,7 @@
 	$sql = "INSERT INTO patient_data VALUES('$first_name','$last_name','$dob','$age','$gender','$phonenumber','$addinfo')";
 
 	if ($conn->query($sql) === TRUE) {
-    	header('Location: search_patient.php');
+    	header('Location: index.php');
 		exit;
 
 } else {

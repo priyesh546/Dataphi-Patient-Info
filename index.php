@@ -7,7 +7,7 @@
 </head>
 <body>
 <br>
-<form action="search_patient.php" method="post">
+<form action="index.php" method="post">
 <center>
 	<label><strong>Search Patient Inormation</strong></label>
 	<input type="text" name="searchName" placeholder="Enter patient's firstname here" style="width: 250px">
