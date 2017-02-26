@@ -20,7 +20,7 @@
 <?php
 
 	include_once('connector.php');
-
+	mysqli_select_db($conn,$db);
 	$first_name_search = null;
 	if (isset($_POST['searchName'])) {
 		$first_name_search = $_POST['searchName'];
@@ -28,9 +28,9 @@
 
 	
 	if($first_name_search != null)
-		$sql = "SELECT * FROM patient_data WHERE first_name='$first_name_search'";
+		$sql = "SELECT * FROM heroku_d967a08d6902966.patient_data WHERE first_name='$first_name_search'";
 	else
-		$sql = "SELECT * FROM patient_data";
+		$sql = "SELECT * FROM heroku_d967a08d6902966.patient_data";
 
 	$result = mysqli_query($conn,$sql);
 

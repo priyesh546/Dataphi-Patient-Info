@@ -1,7 +1,7 @@
 <?php
 	include_once('connector.php');
 
-	//mysqli_select_db($conn,$db);
+	mysqli_select_db($conn,$db);
 
 	$first_name = $_POST['firstname'];
 	$last_name = $_POST['lastname'];
