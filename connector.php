@@ -10,6 +10,5 @@ $host = $url["host"];
 
 // Create connection
 $conn = new mysqli($host,$user,$password,$db);
-mysqli_select_db($conn,$db);
 
 ?>
